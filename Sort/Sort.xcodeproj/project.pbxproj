@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2B5CDF331F9D00AC00772FE1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5CDF321F9D00AC00772FE1 /* main.m */; };
+		2BA50D351F9D716F00906395 /* NSObject+Sort.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BA50D341F9D716F00906395 /* NSObject+Sort.m */; };
+		2BE965B21F9E3D8A00EA9F4F /* NSArray+DumpConsole.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BE965B11F9E3D4500EA9F4F /* NSArray+DumpConsole.m */; };
+		2BE965B51F9E4A7500EA9F4F /* NSMutableArray+Swap.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BE965B41F9E4A7500EA9F4F /* NSMutableArray+Swap.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +28,12 @@
 /* Begin PBXFileReference section */
 		2B5CDF2F1F9D00AB00772FE1 /* Sort */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Sort; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B5CDF321F9D00AC00772FE1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2BA50D331F9D716F00906395 /* NSObject+Sort.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+Sort.h"; sourceTree = "<group>"; };
+		2BA50D341F9D716F00906395 /* NSObject+Sort.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Sort.m"; sourceTree = "<group>"; };
+		2BE965B01F9E3D4500EA9F4F /* NSArray+DumpConsole.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+DumpConsole.h"; sourceTree = "<group>"; };
+		2BE965B11F9E3D4500EA9F4F /* NSArray+DumpConsole.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+DumpConsole.m"; sourceTree = "<group>"; };
+		2BE965B31F9E4A7500EA9F4F /* NSMutableArray+Swap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Swap.h"; sourceTree = "<group>"; };
+		2BE965B41F9E4A7500EA9F4F /* NSMutableArray+Swap.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Swap.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +50,8 @@
 		2B5CDF261F9D00AB00772FE1 = {
 			isa = PBXGroup;
 			children = (
+				2BE965AF1F9E3D4500EA9F4F /* Common */,
+				2BA50D321F9D701B00906395 /* Core */,
 				2B5CDF311F9D00AB00772FE1 /* Sort */,
 				2B5CDF301F9D00AB00772FE1 /* Products */,
 			);
@@ -60,6 +71,26 @@
 				2B5CDF321F9D00AC00772FE1 /* main.m */,
 			);
 			path = Sort;
+			sourceTree = "<group>";
+		};
+		2BA50D321F9D701B00906395 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				2BA50D331F9D716F00906395 /* NSObject+Sort.h */,
+				2BA50D341F9D716F00906395 /* NSObject+Sort.m */,
+				2BE965B31F9E4A7500EA9F4F /* NSMutableArray+Swap.h */,
+				2BE965B41F9E4A7500EA9F4F /* NSMutableArray+Swap.m */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		2BE965AF1F9E3D4500EA9F4F /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				2BE965B01F9E3D4500EA9F4F /* NSArray+DumpConsole.h */,
+				2BE965B11F9E3D4500EA9F4F /* NSArray+DumpConsole.m */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -119,7 +150,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BE965B51F9E4A7500EA9F4F /* NSMutableArray+Swap.m in Sources */,
 				2B5CDF331F9D00AC00772FE1 /* main.m in Sources */,
+				2BA50D351F9D716F00906395 /* NSObject+Sort.m in Sources */,
+				2BE965B21F9E3D8A00EA9F4F /* NSArray+DumpConsole.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,7 +208,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -223,7 +257,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 			};
