@@ -13,7 +13,8 @@
 
 + (void)sort:(NSMutableArray *)array  {
 //    [self selectionSort:array];
-    [self bubbleSort:array];
+//    [self bubbleSort:array];
+    [self insertionSort:array];
 }
 
 + (void)selectionSort:(NSMutableArray *)a {
@@ -48,6 +49,22 @@
         if (wasSorted) {
             break;
         }
+    }
+}
+
++ (void)insertionSort:(NSMutableArray *)a {
+    NSInteger n = a.count;
+    for (NSInteger i = 1; i < n; ++i) { // We need to do n-2 passes
+        if (![a[i] respondsToSelector:@selector(compare:)]) {
+            break;
+        }
+        id value = a[i];
+        NSInteger hole = i;
+        while (hole > 0 && [value compare:a[hole - 1]] == NSOrderedAscending) {
+            a[hole] = a[hole - 1];
+            --hole;
+        }
+        a[hole] = value;
     }
 }
 

@@ -14,9 +14,10 @@ int main(int argc, const char * argv[]) {
     @autoreleasepool {
         // insert code here...
         NSLog(@"Hello, World!");
-//        NSLog(@"Selection Sort");
-        NSLog(@"Buble Sort");
-        NSMutableArray *array = [NSMutableArray arrayWithObjects:@3, @4, @9, @7, @4, @5, @10, @20, nil];
+//        NSLog(@"Selection Sort");insertionSort
+//        NSLog(@"Buble Sort");
+        NSLog(@"InsertionSort Sort");
+        NSMutableArray *array = [NSMutableArray arrayWithObjects:@3, @20, @4, @9, @7, @4, @5, @10, nil];
         [NSObject sort:array];
         [array print];
     }
