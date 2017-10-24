@@ -12,7 +12,8 @@
 @implementation NSObject(Sort)
 
 + (void)sort:(NSMutableArray *)array  {
-    [self selectionSort:array];
+//    [self selectionSort:array];
+    [self bubbleSort:array];
 }
 
 + (void)selectionSort:(NSMutableArray *)a {
@@ -28,6 +29,25 @@
             }
         }
         [a swap:i and:iMin];
+    }
+}
+
++ (void)bubbleSort:(NSMutableArray *)a {
+    NSInteger n = a.count;
+    for (NSInteger k = 1; k < n; ++k) { // We need to do n-2 passes
+        if (![a[k] respondsToSelector:@selector(compare:)]) {
+            break;
+        }
+        BOOL wasSorted = YES;
+        for (NSInteger i = 0; i < n - k; ++i) {
+            if ([a[i + 1] compare:a[i]] == NSOrderedAscending) {
+                wasSorted = NO;
+                [a swap:i and:(i + 1)];
+            }
+        }
+        if (wasSorted) {
+            break;
+        }
     }
 }
 
