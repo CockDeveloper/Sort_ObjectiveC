@@ -15,7 +15,8 @@
 //    [self selectionSort:array];
 //    [self bubbleSort:array];
 //    [self insertionSort:array];
-    [self mergeSort:array];
+//    [self mergeSort:array];
+    [self quickSort:array];
 }
 
 + (void)selectionSort:(NSMutableArray *)a {
@@ -140,5 +141,34 @@
 }
 
 #pragma mark - Quick Sort
++ (void)quickSort:(NSMutableArray *)a {
+    [self quickSort:a withStart:0 andEnd:a.count - 1];
+}
+
++ (void)quickSort:(NSMutableArray *)a
+        withStart:(NSUInteger)s andEnd:(NSUInteger)e {
+    if (s < e) {
+        NSUInteger pIndex = [self partition:a withStart:s andEnd:e];
+        [self quickSort:a withStart:s andEnd:pIndex - 1];
+        [self quickSort:a withStart:pIndex + 1 andEnd:e];
+    }
+}
+
++ (NSUInteger)partition:(NSMutableArray *)a
+        withStart:(NSUInteger)s andEnd:(NSUInteger)e {
+    NSUInteger pIndex = s;
+    id pivot = a[e];
+    for (NSUInteger i = s; i < e; ++i) {
+        if (![a[i] respondsToSelector:@selector(compare:)]) {
+            break;
+        }
+        if ([pivot compare:a[i]] != NSOrderedAscending) {
+            [a swap:pIndex and:i];
+            ++pIndex;
+        }
+    }
+    [a swap:pIndex and:e];
+    return pIndex;
+}
 
 @end
