@@ -14,7 +14,8 @@
 + (void)sort:(NSMutableArray *)array  {
 //    [self selectionSort:array];
 //    [self bubbleSort:array];
-    [self insertionSort:array];
+//    [self insertionSort:array];
+    [self mergeSort:array];
 }
 
 + (void)selectionSort:(NSMutableArray *)a {
@@ -67,5 +68,77 @@
         a[hole] = value;
     }
 }
+
+#pragma mark - Merge Sort
++ (void)merge:(NSUInteger)sL eL:(NSUInteger)eL
+           sR:(NSUInteger)sR eR:(NSUInteger)eR
+        array:(NSMutableArray *)a {
+    if (eL + 1 == sR) {
+        NSInteger nL = eL - sL + 1;
+        NSInteger nR = eR - sR + 1;
+        
+        if (nL > 0 && nR > 0) {
+            NSUInteger i = 0, j = 0;
+            //        NSUInteger k = 0; not need use
+            NSMutableArray *aTemp = [NSMutableArray new];
+            while (i < nL && j < nR) {
+                if (![a[sL + i] respondsToSelector:@selector(compare:)]) {
+                    break;
+                }
+                if (![a[sR + j] respondsToSelector:@selector(compare:)]) {
+                    break;
+                }
+                
+                if ([a[sR + j] compare:a[sL + i]] != NSOrderedAscending) {
+                    [aTemp addObject:a[sL + i]];
+                    //                ++k;
+                    ++i;
+                }
+                else {
+                    [aTemp addObject:a[sR + j]];
+                    //                ++k;
+                    ++j;
+                }
+            }
+            
+            while (i < nL) {
+                [aTemp addObject:a[sL + i]];
+                ++i;
+                //            ++k;
+            }
+            while (j < nR) {
+                [aTemp addObject:a[sR + j]];
+                ++j;
+                //            ++k;
+            }
+            
+            NSRange range = NSMakeRange(sL, nL + nR);
+            [a replaceObjectsInRange:range withObjectsFromArray:aTemp];
+        }
+    }
+}
+
++ (void)mergeSort:(NSMutableArray *)a {
+    [self mergeSort:a withStart:0 andEnd:a.count - 1];
+}
+
++ (void)mergeSort:(NSMutableArray *)a withStart:(NSUInteger)s andEnd:(NSUInteger)e {
+    NSInteger n = e - s + 1;
+    if (n >= 2) {
+        NSUInteger mid = n/2;
+        NSUInteger sL = s;
+        NSUInteger eL = s + mid - 1;
+        NSUInteger sR = s + mid;
+        NSUInteger eR = e;
+        
+        [self mergeSort:a withStart:sL andEnd:eL];
+        [self mergeSort:a withStart:sR andEnd:eR];
+        [self merge:sL eL:eL
+                 sR:sR eR:eR
+              array:a];
+    }
+}
+
+#pragma mark - Quick Sort
 
 @end
