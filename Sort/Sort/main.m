@@ -17,7 +17,8 @@ int main(int argc, const char * argv[]) {
 //        NSLog(@"Selection Sort");insertionSort
 //        NSLog(@"Buble Sort");
 //        NSLog(@"Insertion Sort");
-        NSLog(@"Merge Sort");
+//        NSLog(@"Merge Sort");
+        NSLog(@"Quick Sort");
         NSMutableArray *array = [NSMutableArray arrayWithObjects:@3, @20, @4, @9, @7, @4, @5, @10, nil];
         [NSObject sort:array];
         [array print];
