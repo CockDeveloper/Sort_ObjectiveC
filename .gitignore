@@ -17,6 +17,10 @@ DerivedData/
 !default.perspectivev3
 xcuserdata/
 
+## MacOSX / BeyondCompare
+.DS_Store
+._*
+
 ## Other
 *.moved-aside
 *.xccheckout
